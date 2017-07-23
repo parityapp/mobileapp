@@ -3,6 +3,8 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+import { StyleSheet, View } from 'react-native';
+import Chart from 'react-native-chart';
 
 import React, { Component } from 'react';
 import { Container, Tab, Drawer, Item, Header, Tabs, Input, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
@@ -11,6 +13,26 @@ import SideBar from './src/sidebar';
 import TabOne from './src/tab/tabOne';
 import TabTwo from './src/tab/tabTwo';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  chart: {
+    width: 400,
+    height: 200,
+  },
+});
+
+const data = [[
+  [10, 20],
+  [10, 3],
+  [30, 7],
+  [41, 19],
+]];
+      
 export default class app extends Component {
   
   closeDrawer = () => {
@@ -39,16 +61,23 @@ export default class app extends Component {
               <Text>Search</Text>
             </Button>
           </Header>
-          <Header hasTabs>  
             <Tabs initialPage={1}>
           <Tab heading="Stats">
-            <TabOne />
+            
           </Tab>
           <Tab heading="Graphs">
-            <TabTwo />
+            <View style={styles.container}>
+            <Chart
+              style={styles.chart}
+              data={data}
+              verticalGridStep={5}
+              type="line"
+              showDataPoint={true}
+              color="#e1cd00"
+             />
+            </View>
           </Tab>
         </Tabs>
-          </Header>
           <Content>
             
           </Content>
