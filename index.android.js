@@ -5,11 +5,11 @@
  */
 
 import React, { Component } from 'react';
-import { Container, Drawer, Item, Header, Tabs, Input, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-import {
-  AppRegistry
-} from 'react-native';
+import { Container, Tab, Drawer, Item, Header, Tabs, Input, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { AppRegistry } from 'react-native';
 import SideBar from './src/sidebar';
+import TabOne from './src/tab/tabOne';
+import TabTwo from './src/tab/tabTwo';
 
 export default class app extends Component {
   
@@ -39,22 +39,29 @@ export default class app extends Component {
               <Text>Search</Text>
             </Button>
           </Header>
+          <Header hasTabs>  
+            <Tabs initialPage={1}>
+          <Tab heading="Stats">
+            <TabOne />
+          </Tab>
+          <Tab heading="Graphs">
+            <TabTwo />
+          </Tab>
+        </Tabs>
+          </Header>
           <Content>
             
           </Content>
           <Footer>
           <FooterTab>
             <Button>
-              <Text>Apps</Text>
-            </Button>
-            <Button>
-              <Text>Camera</Text>
+              <Text>Social</Text>
             </Button>
             <Button active>
-              <Text>Navigate</Text>
+              <Text>Updates</Text>
             </Button>
             <Button>
-              <Text>Contact</Text>
+              <Text>Mail</Text>
             </Button>
           </FooterTab>
         </Footer>

@@ -9,7 +9,6 @@ import Tab2 from './tabTwo';
         <Header hasTabs />
         <Tabs initialPage={1}>
           <Tab heading="Channel1">
-          
             <Tab1 />
           </Tab>
           <Tab heading="Channel2">
